@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+set +o posix
+ifconfig wlx70f11c4b5b2f up
+echo -e "nameserver 127.0.0.53\n" > /etc/resolv.conf
+echo -e "nameserver 114.114.114.114\n" >> /etc/resolv.conf
+echo -e "nameserver 114.114.115.115\n" >> /etc/resolv.conf
+echo "search mshome.net" >> /etc/resolv.conf
+/opt/python3.6/bin/python3.6
+/home/xilinx/jupyter_notebooks/facenew.py
+exit 0
